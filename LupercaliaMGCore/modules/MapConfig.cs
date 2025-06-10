@@ -12,7 +12,7 @@ public sealed class MapConfig(IServiceProvider serviceProvider) : PluginModuleBa
 {
     public override string PluginModuleName => "MapConfig";
 
-    public override string ModuleChatPrefix => "[Map Config]";
+    public override string ModuleChatPrefix => "[Hoshi-Star]";
     protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
     // Config name and path

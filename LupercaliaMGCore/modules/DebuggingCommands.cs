@@ -11,7 +11,7 @@ public sealed class Debugging(IServiceProvider serviceProvider) : PluginModuleBa
 {
     public override string PluginModuleName => "DebuggingCommands";
 
-    public override string ModuleChatPrefix => "[Debugging Commands]";
+    public override string ModuleChatPrefix => "[Hoshi-Star]";
     protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
     private readonly Dictionary<CCSPlayerController, Vector> savedPlayerPos = new();

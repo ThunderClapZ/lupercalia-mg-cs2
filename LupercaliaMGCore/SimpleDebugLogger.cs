@@ -23,7 +23,7 @@ public sealed class SimpleDebugLogger : AbstractDebugLoggerBase
 
     public override string RequiredFlagForPrintToConsole => RequiredFlagForPrintToConsoleConVar.Value;
 
-    public override string LogPrefix => "[LPR MG]";
+    public override string LogPrefix => "[Hoshi-Star]";
 
     private const string ModuleName = "DebugLogger";
     

@@ -17,5 +17,9 @@
         <PackageReference Include="CounterStrikeSharp.API" Version="1.0.316" />
         <PackageReference Include="NativeVoteAPI-CS2" Version="0.2.4" />
         <PackageReference Include="TNCSSPluginFoundation" Version="0.3.0" />
+        <ProjectReference Include="..\..\StarCore\StarCore\StarCore.csproj" />
+        <ProjectReference Include="..\..\StarLight-Store\StarLightStoreApi\StarLightStoreApi.csproj" />
+        <ProjectReference Include="..\..\StarAdminProject\StarAdminApi\StarAdminApi.csproj" />
+        <ProjectReference Include="..\..\StarDustStore\StarDustStoreApi\StarDustStoreApi.csproj" />
     </ItemGroup>
 </Project>

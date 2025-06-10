@@ -12,7 +12,7 @@ public sealed class CourseWeapons(IServiceProvider serviceProvider) : PluginModu
 {
     public override string PluginModuleName => "Course Weapons";
 
-    public override string ModuleChatPrefix => "[Course Weapons]";
+    public override string ModuleChatPrefix => "[Hoshi-Star]";
     protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
     

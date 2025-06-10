@@ -23,7 +23,7 @@ public sealed class VoteRoundRestart(IServiceProvider serviceProvider) : PluginM
 
     public override string PluginModuleName => "VoteRoundRestart";
     
-    public override string ModuleChatPrefix => "[RoundRestart]";
+    public override string ModuleChatPrefix => "[Hoshi-Star]";
     protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
     private const string NativeVoteIdentifier = "LupercaliaMGCore:VoteRoundRestart";

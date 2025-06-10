@@ -32,7 +32,7 @@ namespace LupercaliaMGCore.modules.ExternalView
         , ILocalizer
     {
         public override string PluginModuleName => "External View";
-        public override string ModuleChatPrefix => "[External View]";
+        public override string ModuleChatPrefix => "[Hoshi-Star]";
         protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
         private ExternalViewSystem? _System;

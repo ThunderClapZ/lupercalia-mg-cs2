@@ -10,7 +10,7 @@ public sealed class TeamScramble(IServiceProvider serviceProvider) : PluginModul
 {
     public override string PluginModuleName => "TeamScramble";
     
-    public override string ModuleChatPrefix => "[TeamScramble]";
+    public override string ModuleChatPrefix => "[Hoshi-Star]";
     protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
     private static readonly Random Random = new();

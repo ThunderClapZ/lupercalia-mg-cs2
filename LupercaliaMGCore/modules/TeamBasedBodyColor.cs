@@ -2,7 +2,10 @@ using System.Drawing;
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Cvars;
+using CounterStrikeSharp.API.Modules.Entities.Constants;
 using CounterStrikeSharp.API.Modules.Utils;
+using StarCore.Module.TimerModule;
+using StarCore.Utils;
 using TNCSSPluginFoundation.Models.Plugin;
 
 namespace LupercaliaMGCore.modules;
@@ -11,7 +14,7 @@ public sealed class TeamBasedBodyColor(IServiceProvider serviceProvider) : Plugi
 {
     public override string PluginModuleName => "TeamBasedBodyColor";
     
-    public override string ModuleChatPrefix => "[TeamBasedBodyColor]";
+    public override string ModuleChatPrefix => "[Hoshi-Star]";
     protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
     public readonly FakeConVar<bool> IsModuleEnabled =
@@ -46,6 +49,15 @@ public sealed class TeamBasedBodyColor(IServiceProvider serviceProvider) : Plugi
 
         if (player.Team == CsTeam.None || player.Team == CsTeam.Spectator)
             return HookResult.Continue;
+
+        StarTimerManager.AddTimer(Plugin, 0.5f, () =>
+        {
+            var newPawn = Lib.GetAlivePawn(player);
+            if (newPawn != null)
+            {
+                Lib.SetCollisionGroup(newPawn, CollisionGroup.COLLISION_GROUP_DEBRIS);
+            }
+        });
 
         DebugLogger.LogDebug($"[Team Based Body Color] [Player {player.PlayerName}] spawned");
 

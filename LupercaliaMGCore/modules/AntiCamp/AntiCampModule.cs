@@ -17,7 +17,7 @@ public sealed class AntiCampModule(IServiceProvider serviceProvider, bool hotRel
 {
     public override string PluginModuleName => "AntiCamp";
 
-    public override string ModuleChatPrefix => "[AntiCamp]";
+    public override string ModuleChatPrefix => "[Hoshi-Star]";
     protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
     private Timer timer = null!;

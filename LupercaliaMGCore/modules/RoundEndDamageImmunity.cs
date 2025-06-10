@@ -8,7 +8,7 @@ public sealed class RoundEndDamageImmunity(IServiceProvider serviceProvider) : P
 {
     public override string PluginModuleName => "RoundEndDamageImmunity";
     
-    public override string ModuleChatPrefix => "[RoundEndDamageImmunity]";
+    public override string ModuleChatPrefix => "[Hoshi-Star]";
     protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
     private bool damageImmunity = false;

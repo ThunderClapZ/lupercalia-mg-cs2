@@ -9,7 +9,7 @@ public sealed class RoundEndWeaponStrip(IServiceProvider serviceProvider) : Plug
 {
     public override string PluginModuleName => "RoundEndWeaponStrip";
 
-    public override string ModuleChatPrefix => "[RoundEndWeaponStrip]";
+    public override string ModuleChatPrefix => "[Hoshi-Star]";
     protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
     

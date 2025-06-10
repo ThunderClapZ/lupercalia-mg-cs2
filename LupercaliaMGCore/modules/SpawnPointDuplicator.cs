@@ -34,7 +34,7 @@ namespace LupercaliaMGCore.modules
         private static readonly string SPAWN_T = "info_player_terrorist";
 
         public override string PluginModuleName => "Spawn Point Duplicator";
-        public override string ModuleChatPrefix => "[Spawn Point Duplicator]";
+        public override string ModuleChatPrefix => "[Hoshi-Star]";
         protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
         // ConVars

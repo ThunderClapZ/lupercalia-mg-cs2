@@ -13,7 +13,7 @@ public sealed class MiscCommands(IServiceProvider serviceProvider) : PluginModul
 {
     public override string PluginModuleName => "MiscCommands";
 
-    public override string ModuleChatPrefix => "[Misc Commands]";
+    public override string ModuleChatPrefix => "[Hoshi-Star]";
     protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
     

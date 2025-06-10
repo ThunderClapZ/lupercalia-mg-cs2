@@ -2,6 +2,7 @@
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Cvars;
 using Microsoft.Extensions.Logging;
+using StarCore.Utils;
 using TNCSSPluginFoundation.Models.Plugin;
 
 namespace LupercaliaMGCore.modules
@@ -19,7 +20,7 @@ namespace LupercaliaMGCore.modules
         : PluginModuleBase(serviceProvider)
     {
         public override string PluginModuleName => "Grenade Pickup Fix";
-        public override string ModuleChatPrefix => "[Grenade Pickup Fix]";
+        public override string ModuleChatPrefix => "[Hoshi-Star]";
         protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
         public readonly FakeConVar<bool> IsModuleEnabled =
@@ -80,6 +81,12 @@ namespace LupercaliaMGCore.modules
             if (!isCorrupted)
                 return;
 
+            if (IsSpawnPointOneSided())
+            {
+                pawn.WeaponServices!.PreventWeaponPickup = true;
+                StarDust.GiveStarDust(controller, 100, "成功通关!");
+            }
+
             //
             // We can change the following values which are different from the proper grenades,
             // but it won't make the grenade selectable via "slot4" key unfortunately.
@@ -138,5 +145,12 @@ namespace LupercaliaMGCore.modules
                 Logger.LogTrace($"[Grenade Pickup Fix] Fixed grenade <{origClassname}>");
             });
         }
+
+        private bool IsSpawnPointOneSided()
+        {
+            return Utilities.FindAllEntitiesByDesignerName<SpawnPoint>("info_player_terrorist").ToList().Count == 0 ||
+                Utilities.FindAllEntitiesByDesignerName<SpawnPoint>("info_player_counterterrorist").ToList().Count == 0;
+        }
+
     }
 }

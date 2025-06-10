@@ -15,7 +15,7 @@ public sealed class ScheduledShutdown(IServiceProvider serviceProvider) : Plugin
 {
     public override string PluginModuleName => "ScheduledShutdown";
     
-    public override string ModuleChatPrefix => "[ScheduledShutdown]";
+    public override string ModuleChatPrefix => "[Hoshi-Star]";
     protected override bool UseTranslationKeyInModuleChatPrefix => false;
 
     private Timer shutdownTimer = null!;
