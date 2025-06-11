@@ -69,7 +69,7 @@ public sealed class Omikuji(IServiceProvider serviceProvider) : PluginModuleBase
         TrackConVar(CommandExecutionDelayMin);
         TrackConVar(CommandExecutionDelayMax);
         
-        Plugin.AddCommand("css_omikuji", "draw a fortune.", CommandOmikuji);
+        Plugin.AddCommand("css_cq", "draw a fortune.", CommandOmikuji);
         Plugin.RegisterEventHandler<EventPlayerConnectFull>(OnPlayerConnectFull);
 
         omikujiTypes.Add((OmikujiType.EventBad, EventWeightBad.Value));
@@ -99,7 +99,7 @@ public sealed class Omikuji(IServiceProvider serviceProvider) : PluginModuleBase
 
     protected override void OnUnloadModule()
     {
-        Plugin.RemoveCommand("css_omikuji", CommandOmikuji);
+        Plugin.RemoveCommand("css_cq", CommandOmikuji);
         Plugin.DeregisterEventHandler<EventPlayerConnectFull>(OnPlayerConnectFull);
     }
 

@@ -3,6 +3,7 @@ using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Commands;
 using CounterStrikeSharp.API.Modules.Cvars;
 using CounterStrikeSharp.API.Modules.Utils;
+using StarCore.Utils;
 using TNCSSPluginFoundation.Models.Plugin;
 using TNCSSPluginFoundation.Utils.Entity;
 using Timer = CounterStrikeSharp.API.Modules.Timers.Timer;
@@ -26,6 +27,7 @@ public sealed class Rocket(IServiceProvider serviceProvider) : PluginModuleBase(
     {
         Plugin.RegisterEventHandler<EventPlayerConnectFull>(OnPlayerConnectFull);
         Plugin.AddCommand("css_rocket", "launch to space.", CommandRocket);
+        Plugin.AddCommand("css_kill", "suicide", CommandSuicide);
 
         Plugin.AddTimer(0.1F, () =>
         {
@@ -70,13 +72,24 @@ public sealed class Rocket(IServiceProvider serviceProvider) : PluginModuleBase(
         RocketPerform(client);
     }
 
+    private void CommandSuicide(CCSPlayerController? client, CommandInfo info)
+    {
+        if (client == null || !PlayerUtil.IsPlayerAlive(client) || isRocketLaunched[client])
+            return;
+        
+        if (!IsModuleEnabled.Value)
+            return;
+
+        Lib.CommitSuicide(client);
+    }
+
     private void RocketPerform(CCSPlayerController client)
     {
         if (!PlayerUtil.IsPlayerAlive(client) || isRocketLaunched[client]) return;
 
         CBasePlayerPawn pawn = client.Pawn.Value!;
 
-        Server.PrintToChatAll($" {ChatColors.Lime} {client.PlayerName} {ChatColors.Default}lancuhed to space!");
+        Server.PrintToChatAll($" {ChatColors.Lime} {client.PlayerName} {ChatColors.Default}发射到太空了");
 
         var vel = new Vector(0.0f, 0.0f, 350f);
         pawn.EmitSound("C4.ExplodeWarning");
