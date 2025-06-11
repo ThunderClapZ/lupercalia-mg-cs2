@@ -54,7 +54,7 @@ public class AntiCampGlowingEntity(IServiceProvider provider, CCSPlayerControlle
         modelGlow.Glow.GlowRange = 5000;
         modelGlow.Glow.GlowTeam = -1;
         modelGlow.Glow.GlowType = 3;
-        modelGlow.Glow.GlowRangeMin = 0;
+        modelGlow.Glow.GlowRangeMin = 32;
 
         modelRelay.AcceptInput("FollowEntity", playerPawn, modelRelay, "!activator");
         modelGlow.AcceptInput("FollowEntity", modelRelay, modelGlow, "!activator");

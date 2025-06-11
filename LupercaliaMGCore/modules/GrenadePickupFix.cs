@@ -81,12 +81,6 @@ namespace LupercaliaMGCore.modules
             if (!isCorrupted)
                 return;
 
-            if (IsSpawnPointOneSided())
-            {
-                pawn.WeaponServices!.PreventWeaponPickup = true;
-                StarDust.GiveStarDust(controller, 100, "成功通关!");
-            }
-
             //
             // We can change the following values which are different from the proper grenades,
             // but it won't make the grenade selectable via "slot4" key unfortunately.

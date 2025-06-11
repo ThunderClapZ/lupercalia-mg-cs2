@@ -61,6 +61,7 @@ public sealed class LupercaliaMGCore : TncssPluginBase
         RegisterModule<EntityOutputHook>();
         RegisterModule<SpawnPointDuplicator>();
         RegisterModule<GrenadePickupFix>();
+        RegisterModule<StarDustGiver>();
     }
 
     protected override void RegisterRequiredPluginServices(IServiceCollection collection, IServiceProvider services)
