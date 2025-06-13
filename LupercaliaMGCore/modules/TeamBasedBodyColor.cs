@@ -50,15 +50,6 @@ public sealed class TeamBasedBodyColor(IServiceProvider serviceProvider) : Plugi
         if (player.Team == CsTeam.None || player.Team == CsTeam.Spectator)
             return HookResult.Continue;
 
-        StarTimerManager.AddTimer(Plugin, 0.5f, () =>
-        {
-            var newPawn = Lib.GetAlivePawn(player);
-            if (newPawn != null)
-            {
-                Lib.SetCollisionGroup(newPawn, CollisionGroup.COLLISION_GROUP_DEBRIS);
-            }
-        });
-
         DebugLogger.LogDebug($"[Team Based Body Color] [Player {player.PlayerName}] spawned");
 
         //
