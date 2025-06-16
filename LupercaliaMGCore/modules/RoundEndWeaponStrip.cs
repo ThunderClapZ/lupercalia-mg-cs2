@@ -1,6 +1,7 @@
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Cvars;
+using StarCore.Utils;
 using TNCSSPluginFoundation.Models.Plugin;
 
 namespace LupercaliaMGCore.modules;
@@ -41,7 +42,7 @@ public sealed class RoundEndWeaponStrip(IServiceProvider serviceProvider) : Plug
 
             player.RemoveWeapons();
         }
-
+        Lib.PrintCsWinPanel(Plugin, "MG群:780751341");
         DebugLogger.LogDebug("[Round End Weapon Strip] Done.");
         return HookResult.Continue;
     }

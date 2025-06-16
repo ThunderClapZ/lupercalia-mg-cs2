@@ -16,11 +16,13 @@ public sealed class StarDustGiver(IServiceProvider serviceProvider) : PluginModu
     protected override void OnInitialize()
     {
         Plugin.RegisterEventHandler<EventPlayerDeath>(OnPlayerDeath, HookMode.Post);
+        Plugin.RegisterEventHandler<EventRoundEnd>(OnRoundEnd, HookMode.Post);
     }
 
     protected override void OnUnloadModule()
     {
         Plugin.DeregisterEventHandler<EventPlayerDeath>(OnPlayerDeath, HookMode.Post);
+        Plugin.DeregisterEventHandler<EventRoundEnd>(OnRoundEnd, HookMode.Post);
     }
 
     private HookResult OnPlayerDeath(EventPlayerDeath @event, GameEventInfo info)
@@ -34,10 +36,22 @@ public sealed class StarDustGiver(IServiceProvider serviceProvider) : PluginModu
         if (victim == attacker) return HookResult.Continue;
         
         var playerCount = Utilities.GetPlayers().Count;
-        if (playerCount < 25) return HookResult.Continue;
+        if (playerCount < 20) return HookResult.Continue;
 
         StarDust.GiveStarDust(attacker, 1, "击杀");
 
+        return HookResult.Continue;
+    }
+
+    private HookResult OnRoundEnd(EventRoundEnd @event, GameEventInfo info)
+    {
+        var playerCount = Utilities.GetPlayers().Count;
+        if (playerCount < 20) return HookResult.Continue;
+        foreach (var player in Utilities.GetPlayers())
+        {
+            if (!Lib.IsPlayerValid(player)) continue;
+            StarDust.GiveStarDust(player, 1, "回合结束");
+        }
         return HookResult.Continue;
     }
 }
