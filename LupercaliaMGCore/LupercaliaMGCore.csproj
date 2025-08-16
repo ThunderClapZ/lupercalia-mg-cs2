@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <VersionPrefix>1.7.0</VersionPrefix>
+        <VersionPrefix>1.9.0</VersionPrefix>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -14,12 +14,8 @@
     </Target>
 
     <ItemGroup>
-        <PackageReference Include="CounterStrikeSharp.API" Version="1.0.330" />
-        <PackageReference Include="NativeVoteAPI-CS2" Version="0.2.4" />
-        <PackageReference Include="TNCSSPluginFoundation" Version="0.3.0" />
-        <ProjectReference Include="..\..\StarCore\StarCore\StarCore.csproj" />
-        <ProjectReference Include="..\..\StarLight-Store\StarLightStoreApi\StarLightStoreApi.csproj" />
-        <ProjectReference Include="..\..\StarAdminProject\StarAdminApi\StarAdminApi.csproj" />
-        <ProjectReference Include="..\..\StarDustStore\StarDustStoreApi\StarDustStoreApi.csproj" />
+        <PackageReference Include="CounterStrikeSharp.API" Version="1.0.335" />
+        <PackageReference Include="NativeVoteAPI-CS2" Version="0.3.1" />
+        <PackageReference Include="TNCSSPluginFoundation" Version="0.4.1" />
     </ItemGroup>
 </Project>
